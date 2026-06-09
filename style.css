@@ -1,71 +1,485 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ==========================================
+   VARIABLES DE DISEÑO (Look Startup)
+   ========================================== */
+:root {
+    --bg-main: #0B0F19;
+    --bg-card: rgba(22, 31, 48, 0.4);
+    --bg-card-hover: rgba(22, 31, 48, 0.6);
+    --accent-cyan: #00F2FE;
+    --accent-purple: #A855F7;
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --border-color: rgba(255, 255, 255, 0.06);
+    --font-titles: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
-body{
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#050505,#0d1117,#111827);
-    color:white;
-    min-height:100vh;
+/* ==========================================
+   RESETS & ESTILOS BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
-    text-align:center;
-    padding:100px 20px;
+body {
+    background-color: var(--bg-main);
+    /* 🕸️ Cuadrícula de fondo sutil */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center top;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
 }
 
-h1{
-    font-size:80px;
-    letter-spacing:8px;
-    margin-bottom:20px;
+/* Luces de Fondo (Glow Effect) */
+.hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,242,254,0.12) 0%, rgba(168,85,247,0.04) 50%, transparent 100%);
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    filter: blur(90px);
+    pointer-events: none;
 }
 
-h2{
-    margin-bottom:20px;
+/* ==========================================
+   HEADER / HERO SECTION
+   ========================================== */
+.hero {
+    text-align: center;
+    padding: 5rem 1.5rem 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header p{
-    font-size:24px;
-    opacity:.9;
+.logo {
+    font-family: var(--font-titles);
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    color: #fff;
 }
 
-section{
-    max-width:1000px;
-    margin:30px auto;
-    padding:30px;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.1);
+.logo span {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-ul{
-    margin-left:25px;
+.tagline {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 1.5rem;
 }
 
-li{
-    margin:10px 0;
+/* Badges de Estadísticas Clave */
+.hero-badges {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.socials{
-    margin-top:30px;
+.badge {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.socials a{
-    display:inline-block;
-    padding:15px 25px;
-    margin:10px;
-    text-decoration:none;
-    color:white;
-    border:1px solid white;
-    border-radius:12px;
-    transition:0.3s;
+.badge.highlight {
+    border-color: rgba(0, 242, 254, 0.3);
+    background: rgba(0, 242, 254, 0.05);
+    color: var(--accent-cyan);
 }
 
-.socials a:hover{
-    transform:translateY(-3px);
-    background:white;
-    color:black;
+/* Botones de Redes Sociales */
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-social {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    color: #fff;
+}
+
+.btn-social.tiktok {
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-social.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.btn-social:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL & GRID (Responsivo)
+   ========================================== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* El welcome ocupa todo el ancho en pantallas grandes */
+.welcome-card {
+    grid-column: 1 / -1;
+}
+
+/* ==========================================
+   TARJETAS (Glassmorphism)
+   ========================================== */
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-4px);
+    border-color: rgba(0, 242, 254, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 242, 254, 0.04);
+}
+
+.card h2 {
+    font-family: var(--font-titles);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    letter-spacing: -0.5px;
+    transition: color 0.3s ease;
+}
+
+/* El ícono del título brilla cuando pasás el mouse sobre la tarjeta */
+.card:hover h2 i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px currentColor);
+    transition: all 0.3s ease;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.card p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Colores de Iconos */
+.icon-cyan { color: var(--accent-cyan); }
+.icon-purple { color: var(--accent-purple); }
+.text-cyan { color: var(--accent-cyan); }
+
+/* ==========================================
+   ELEMENTOS DE LISTAS INTERNAS
+   ========================================== */
+.styled-list {
+    list-style: none;
+}
+
+.styled-list li {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+}
+
+.styled-list li strong {
+    color: var(--text-main);
+}
+
+.list-icon {
+    width: 20px;
+    text-align: center;
+    color: var(--accent-cyan);
+}
+
+.list-icon.yellow { color: #FBBF24; }
+
+.grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* ==========================================
+   SECCIÓN PRÓXIMOS REVIEWS (Tags)
+   ========================================== */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tag-item {
+    background: rgba(168, 85, 247, 0.06);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    color: #D8B4FE;
+    padding: 0.4rem 0.9rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.tag-item:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: var(--accent-purple);
+    transform: scale(1.03);
+}
+
+/* ==========================================
+   SECCIÓN CONTACTO (Call to Action)
+   ========================================== */
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mail-text {
+    margin-bottom: 0.5rem !important;
+}
+
+.btn-email {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.btn-email:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 242, 254, 0.25);
+    opacity: 0.95;
+}
+
+.contact-footer-socials {
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.contact-footer-socials a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.contact-footer-socials a:hover {
+    color: var(--accent-cyan);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ==========================================
+   ANIMACIONES SUTILES
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Delays para efecto de cascada al cargar */
+.container > :nth-child(1) { animation-delay: 0.1s; }
+.container > :nth-child(2) { animation-delay: 0.2s; }
+.container > :nth-child(3) { animation-delay: 0.3s; }
+.container > :nth-child(4) { animation-delay: 0.4s; }
+.container > :nth-child(5) { animation-delay: 0.5s; }
+.container > :nth-child(6) { animation-delay: 0.6s; }
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--accent-purple), var(--accent-cyan));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-cyan);
+}
+
+/* ==========================================
+   AGREGADOS PREMIUM (Foto, Estado Live y Scroll)
+   ========================================== */
+
+/* 1. Barra de desplazamiento estilo Tech */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--accent-purple), var(--accent-cyan));
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-cyan);
+}
+
+/* 2. Tu Foto de Perfil */
+.hero-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover; /* Evita que la foto se deforme */
+    margin-bottom: 1.5rem;
+    border: 2px solid rgba(0, 242, 254, 0.4);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-avatar:hover {
+    transform: scale(1.05) rotate(2deg);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+}
+
+/* 3. El Indicador de Estado "LIVE" (Wow Factor) */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(16, 185, 129, 0.06); /* Fondo verde traslúcido */
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 0.45rem 1rem;
+    border-radius: 99px;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.status-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #10B981; /* Verde esmeralda */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10B981;
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Animación del pulso de luz verde */
+.status-dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #10B981;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* 🖌️ Selección de texto personalizada */
+::selection {
+    background: rgba(0, 242, 254, 0.25);
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
 }

@@ -1,133 +1,120 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tine Tech</title>
-
-```
-<link rel="stylesheet" href="style.css">
-```
-
+    <title>Tine Tech | Hardware, Gaming & IA</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-```
-<header>
+    <!-- Fondo con luces de neón difuminadas (Glow) -->
+    <div class="hero-glow"></div>
 
-    <h1>TINE TECH</h1>
+    <header class="hero">
+        <!-- 🟢 TOQUE WOW: Indicador de Estado Pulsante -->
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            <span class="status-text">Disponible para Colaboraciones / PR</span>
+        </div>
+        
+        <img src="perfil.jpg" alt="Valentino Tine" class="hero-avatar">
+        <!-- 👤 TU FOTO: Ajustá "perfil.jpg" si tu extensión es distinta -->
+      
 
-    <h3>El futuro del hardware, gaming e inteligencia artificial</h3>
 
-    <p>+24.000 seguidores entre TikTok e Instagram</p>
+        <div class="logo">TINE <span>TECH</span></div>
+        <p class="tagline">El futuro del hardware, gaming e inteligencia artificial</p>
+        
+        <!-- Badges destacados -->
+        <div class="hero-badges">
+            <span class="badge"><i class="fa-solid fa-users"></i> +24K Seguidores</span>
+            <span class="badge highlight"><i class="fa-solid fa-fire"></i> +3M Views Viral</span>
+        </div>
 
-    <p>Video con más de 3 millones de visualizaciones</p>
+        <div class="socials">
+            <a href="https://www.tiktok.com/@tine17__" target="_blank" class="btn-social tiktok">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://www.instagram.com/__tineeeee" target="_blank" class="btn-social instagram">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+        </div>
+    </header>
 
-    <div class="socials">
-        <a href="https://www.tiktok.com/@tine17__" target="_blank">TikTok</a>
+    <main class="container">
+        
+        <section class="card welcome-card animate-fade">
+            <h2><i class="fa-solid fa-rocket icon-cyan"></i> Bienvenido a Tine Tech</h2>
+            <p>Contenido sobre hardware, gaming, benchmarks, inteligencia artificial y proyectos tecnológicos.</p>
+            <p>Mi objetivo es probar productos reales y compartir experiencias honestas con la comunidad.</p>
+        </section>
 
-        <a href="https://www.instagram.com/__tineeeee" target="_blank">Instagram</a>
-    </div>
+        <section class="card animate-fade">
+            <h2><i class="fa-solid fa-code icon-purple"></i> Sobre mí</h2>
+            <p>Soy Valentino "Tine", creador de contenido argentino apasionado por la tecnología, hardware, gaming e inteligencia artificial.</p>
+            <p>A través de Tine Tech comparto análisis, armado de PCs, benchmarks y novedades tecnológicas.</p>
+        </section>
 
-</header>
+        <section class="card stats-card animate-fade">
+            <h2><i class="fa-solid fa-chart-simple icon-cyan"></i> Estadísticas</h2>
+            <ul class="styled-list">
+                <li><i class="fa-brands fa-tiktok list-icon"></i> <strong>+16.000</strong> seguidores en TikTok</li>
+                <li><i class="fa-brands fa-instagram list-icon"></i> <strong>+8.000</strong> seguidores en Instagram</li>
+                <li><i class="fa-solid fa-bolt list-icon yellow"></i> Video con más de <strong>3 millones</strong> de views</li>
+                <li><i class="fa-solid fa-globe list-icon"></i> Audiencia de Argentina y Latinoamérica</li>
+            </ul>
+        </section>
 
-<section>
+        <section class="card animate-fade">
+            <h2><i class="fa-solid fa-handshake icon-purple"></i> Colaboraciones</h2>
+            <p>Estoy abierto a colaborar con fabricantes, distribuidores y marcas tecnológicas del sector.</p>
+            <ul class="styled-list grid-list">
+                <li><i class="fa-solid fa-check text-cyan"></i> Reviews de hardware</li>
+                <li><i class="fa-solid fa-check text-cyan"></i> Benchmarks reales</li>
+                <li><i class="fa-solid fa-check text-cyan"></i> Contenido para TikTok</li>
+                <li><i class="fa-solid fa-check text-cyan"></i> Contenido para Instagram</li>
+                <li><i class="fa-solid fa-check text-cyan"></i> Armado de PCs</li>
+                <li><i class="fa-solid fa-check text-cyan"></i> Sorteos</li>
+            </ul>
+        </section>
 
-    <h2>🚀 Bienvenido a Tine Tech</h2>
+        <section class="card animate-fade">
+            <h2><i class="fa-solid fa-microchip icon-cyan"></i> Próximos Reviews</h2>
+            <div class="tags-container">
+                <span class="tag-item">Mini PCs</span>
+                <span class="tag-item">Motherboards ITX</span>
+                <span class="tag-item">SSD NVMe</span>
+                <span class="tag-item">Memorias DDR5</span>
+                <span class="tag-item">Teclados Mecánicos</span>
+                <span class="tag-item">Herramientas de IA</span>
+            </div>
+        </section>
 
-    <p>
-        Contenido sobre hardware, gaming, benchmarks,
-        inteligencia artificial y proyectos tecnológicos.
-    </p>
+        <section class="card contact-card animate-fade">
+            <h2><i class="fa-solid fa-envelope icon-purple"></i> Contacto</h2>
+            <p class="mail-text">¿Querés que trabajemos juntos?</p>
+            <a href="mailto:tine.tech.ar@gmail.com" class="btn-email">
+                <i class="fa-regular fa-envelope"></i> tine.tech.ar@gmail.com
+            </a>
+            <div class="contact-footer-socials">
+                <a href="https://www.tiktok.com/@tine17__" target="_blank"><i class="fa-brands fa-tiktok"></i> @tine17__</a>
+                <a href="https://www.instagram.com/__tineeeee" target="_blank"><i class="fa-brands fa-instagram"></i> @__tineeeee</a>
+            </div>
+        </section>
+        
+    </main>
 
-    <p>
-        Mi objetivo es probar productos reales y compartir
-        experiencias honestas con la comunidad.
-    </p>
-
-</section>
-
-<section>
-
-    <h2>👨‍💻 Sobre mí</h2>
-
-    <p>
-        Soy Valentino "Tine", creador de contenido argentino
-        apasionado por la tecnología, hardware, gaming
-        e inteligencia artificial.
-    </p>
-
-    <p>
-        A través de Tine Tech comparto análisis,
-        armado de PCs, benchmarks y novedades tecnológicas.
-    </p>
-
-</section>
-
-<section>
-
-    <h2>📊 Estadísticas</h2>
-
-    <ul>
-        <li>+16.000 seguidores en TikTok</li>
-        <li>+8.000 seguidores en Instagram</li>
-        <li>Video con más de 3 millones de visualizaciones</li>
-        <li>Audiencia de Argentina y Latinoamérica</li>
-    </ul>
-
-</section>
-
-<section>
-
-    <h2>🤝 Colaboraciones</h2>
-
-    <p>
-        Estoy abierto a colaborar con fabricantes,
-        distribuidores y marcas tecnológicas.
-    </p>
-
-    <ul>
-        <li>Reviews de hardware</li>
-        <li>Benchmarks y pruebas reales</li>
-        <li>Contenido para TikTok</li>
-        <li>Contenido para Instagram</li>
-        <li>Armado de PCs</li>
-        <li>Sorteos para la comunidad</li>
-    </ul>
-
-</section>
-
-<section>
-
-    <h2>🔥 Próximos Reviews</h2>
-
-    <ul>
-        <li>Mini PCs</li>
-        <li>Motherboards ITX</li>
-        <li>SSD NVMe</li>
-        <li>Memorias DDR5</li>
-        <li>Teclados Mecánicos</li>
-        <li>Herramientas de IA</li>
-    </ul>
-
-</section>
-
-<section>
-
-    <h2>📩 Contacto</h2>
-
-    <p>Email: tine.tech.ar@gmail.com</p>
-
-    <p>TikTok: @tine17__</p>
-
-    <p>Instagram: @__tineeeee</p>
-
-</section>
-```
+    <footer>
+        <p>&copy; 2026 Tine Tech. Desarrollado por Valentino.</p>
+    </footer>
 
 </body>
-
 </html>
