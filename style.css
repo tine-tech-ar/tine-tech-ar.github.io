@@ -1,0 +1,40 @@
+body {
+background: linear-gradient(135deg, #0a0a0a, #111827);    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    padding: 60px;
+}
+
+h1 {
+    font-size: 70px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}
+.socials {
+    margin-top: 20px;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.socials a:hover {
+    background: white;
+    color: black;
+}
